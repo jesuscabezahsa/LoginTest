@@ -21,3 +21,14 @@
     --deep-gray: #696969;
 }
 
+.general-primary-button {
+  padding: 0.5rem;
+  border: 0.5px solid var(--picton-blue);
+  border-radius: 0.2rem;
+  font-size: 0.8rem;
+  width: 100%;
+  background-color: var(--sky-blue);
+  color: var(--baby-blue);
+  font-weight: 600;
+  margin-top: 1rem;
+}

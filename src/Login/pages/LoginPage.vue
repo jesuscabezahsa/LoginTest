@@ -20,7 +20,7 @@
                 <label for="code" class="login-form_group__label">Code</label>
                 <input type="code" id="code" class="login-form_group__input" >
             </div>
-            <button class="login-form_button">LOGIN</button>
+            <button class="general-primary-button">LOGIN</button>
         </form>
     </div>
 </template>
@@ -64,15 +64,5 @@
     font-size: 0.8rem;
     width: 100%;
 }
-.login-form_button {
-    padding: 0.5rem;
-    border: 0.5px solid var(--picton-blue);
-    border-radius: 0.2rem;
-    font-size: 0.8rem;
-    width: 100%;
-    background-color: var(--sky-blue);
-    color: var(--baby-blue);
-    font-weight: 600;
-    margin-top: 1rem;
-}
+
 </style>
