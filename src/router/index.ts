@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import AnimalRandomPage from "../AnimalsRandom/pages/AnimalRandomPage.vue";
-import isAutetincatedGuard from "./auth-guard";
+import {isAutetincatedGuardForAnimalRandom, isAutetincatedGuardForLogin} from "./auth-guard";
 
 
 const router = createRouter({
@@ -9,12 +9,13 @@ const router = createRouter({
         {
             path: "/",
             name: 'AnimalRandom',
-            beforeEnter: [isAutetincatedGuard],
+            beforeEnter: [isAutetincatedGuardForAnimalRandom],
             component: AnimalRandomPage
         },
         {
             path: "/login",
             name: 'Login',
+            beforeEnter: [isAutetincatedGuardForLogin],
             component: () => import("../Login/pages/LoginPage.vue")
         },
         {

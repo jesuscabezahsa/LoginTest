@@ -5,8 +5,14 @@ const setItemToLocalStorage = (key: string, value: any) => {
 
 const getItemFromLocalStorage = (key: string) => { 
     const value = localStorage.getItem(key)
-    if (!value) return null
+    if (!value) {
+      return null  
+    } 
     return JSON.parse(value)
 }
 
-export { setItemToLocalStorage, getItemFromLocalStorage }
+const removeItemFromLocalStorage = (key: string) => { 
+    localStorage.removeItem(key)
+}
+
+export { setItemToLocalStorage, getItemFromLocalStorage, removeItemFromLocalStorage }

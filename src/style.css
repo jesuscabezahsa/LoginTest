@@ -31,4 +31,5 @@
   color: var(--baby-blue);
   font-weight: 600;
   margin-top: 1rem;
+  cursor: pointer;
 }

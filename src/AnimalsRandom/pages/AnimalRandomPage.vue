@@ -1,17 +1,39 @@
 <script setup lang='ts'>
+import { ref } from 'vue';
+import { useGetAnimalRandom } from '../aplication/useGetAnimalRandom';
+import { AnimalRandom } from '../domain/AnimalRandom';
+import { useLogout } from '../aplication/useLogout';
+import { useRouter } from 'vue-router';
+
+
+const router = useRouter()
+const animal = ref<AnimalRandom>({
+  name: '',
+  img: '',
+});
+
+const getAnimalRandom = () => {
+  animal.value = useGetAnimalRandom()
+}
+
+const logOut = () => {
+  useLogout()
+  router.push({ name: 'Login' })
+}
+
 </script>
 
 <template>
    <div class="animal-page">
       <section class="section animal-page_animal">
-        <button class="general-primary-button animal-page_animal__button">RANDOM ANIMAL</button>
-        <article class="animal-page_animal__data">
-            <p class="animal-page_animal__data__name">Nombre del animal</p>
-            <img class="animal-page_animal__data__img" src="imagen.jpg" alt="Imagen del animal">
+        <button class="general-primary-button animal-page_animal__button" @click="getAnimalRandom()">RANDOM ANIMAL</button>
+        <article v-if="animal.name !==''" class="animal-page_animal__data">
+            <p class="animal-page_animal__data__name">{{animal.name}}</p>
+            <img class="animal-page_animal__data__img" :src="animal.img" alt="Imagen del animal">
         </article>
       </section>
       <section class="section animal-page_logout">
-        <div class="animal-page_logout__button">
+        <div class="animal-page_logout__button" @click="logOut()">
             <img class="animal-page_logout__icon" src="../../../assets/logout-icon.svg" alt="">
         </div>
     </section>
@@ -51,8 +73,11 @@
   font-weight: 600;
   margin-bottom: 1rem;
   text-transform: uppercase;
+  text-align: center;
 }
-
+.animal-page_animal__data__img {
+  max-width: 25rem;
+}
 .animal-page_logout {
   display: flex;
   flex-direction: column;
